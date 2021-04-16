@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+<div class="OrderCreateForm">
+  <form method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="Save" />
+  </form>
+</div>
+<div class="container">
+  <ul class="responsive-table">
+    <li class="table-header"><h2>All Orders</h2></li>
+    {% for item in object_list %}
+    <li class="table-row">
+      <div class="col col-1">{{ item.title }}</div>
+      <div class="col col-2">{{ item.price }}</div>
+      <div class="col col-3">{{ item.isDiscounted }}</div>
+      <div class="col col-4">
+        <a href="./detail/{{item.id}}">View</a> |
+        <a href="./delete/{{item.id}}">Delete</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
