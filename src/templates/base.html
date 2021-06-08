@@ -11,14 +11,18 @@
     <title>Django Capstone Project</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
   </head>
   <body>
-    <h2 class="headertable">Header</h2>
-    
+    <h2>Header</h2>
+
     {% include 'navbar.html' %} {% block content %} {% endblock %}
-    <h2> footer </h2>
-    
+    <h2>footer</h2>
+
     <script src="" async defer></script>
   </body>
 </html>

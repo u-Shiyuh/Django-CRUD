@@ -10,3 +10,6 @@ class OrderForm(forms.ModelForm):
             'price',
             'isDiscounted',
         ]
+        widgets = {
+            'title': forms.TextInput(attrs={"class": "titleDesign"}),
+        }

@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
 <div class="OrderCreateForm">
-  <form method="POST">
+  <form method="POST" class="createForm">
     {% csrf_token %} {{form.as_p}}
     <input type="submit" value="Save" />
   </form>
@@ -17,6 +17,7 @@
       <div class="col col-3">{{ item.isDiscounted }}</div>
       <div class="col col-4">
         <a href="./detail/{{item.id}}">View</a> |
+        <a href="./edit/{{item.id}}">Edit</a> |
         <a href="./delete/{{item.id}}">Delete</a>
       </div>
     </li>

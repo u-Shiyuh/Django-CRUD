@@ -30,3 +30,19 @@ def delete_view(request, id, *args, **kwargs):
     Order.objects.filter(id=id).delete()
     queryset = Order.objects.all()
     return redirect('../../')
+
+
+def edit_view(request, id, *args, **kwargs):
+    form = OrderForm(request.POST or None)
+    order = Order.objects.get(id=id)
+    if form.is_valid():
+        form = OrderForm(request.POST, instance=order)
+        form.save()
+        return(redirect('../../'))
+    else:
+
+        form = OrderForm(instance=order)
+        context = {
+            "form": form,
+        }
+        return render(request, "edit.html", context)
